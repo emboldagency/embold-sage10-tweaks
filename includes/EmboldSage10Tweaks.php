@@ -25,4 +25,18 @@ class EmboldSage10Tweaks {
             add_editor_style($app_css_path);
         });
     }
+
+    /**
+     * Add SVG support.
+     *
+     * @return void
+     */
+    public function addSvgSupport()
+    {
+        add_filter('upload_mimes', function ($mimes) {
+            $mimes['svg'] = 'image/svg+xml';
+
+            return $mimes;
+        });
+    }
 }

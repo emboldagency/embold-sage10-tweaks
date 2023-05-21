@@ -5,3 +5,4 @@ a drag and drop plugin.
 
 
 1. Enqueues app.css styles in only the Gutenberg editor, not the entire admin panel.
+2. Allow SVG uploads in the admin panel.
