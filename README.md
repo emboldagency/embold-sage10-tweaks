@@ -7,3 +7,4 @@ a drag and drop plugin.
 1. Enqueues app.css styles in only the Gutenberg editor, not the entire admin panel.
 2. Allow SVG uploads in the admin panel.
 3. Defer and async various Gutenberg scripts to avoid Coders 502 errors.
+4. Add "wp-paragraph" class to Gutenberg paragraph blocks to allow easier styling of the blocks vs ACF wysiwyg p's.

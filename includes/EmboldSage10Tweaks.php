@@ -103,4 +103,18 @@ class EmboldSage10Tweaks {
             return $tag;
         }, 10, 2);
     }
+
+    /**
+     * Add a class to the paragraph block.
+     */
+    public function addParagraphBlockClass()
+    {
+        add_filter('render_block', function ($block_content, $block) {
+            if ($block['blockName'] === 'core/paragraph') {
+                $block_content = str_replace('<p', '<p class="wp-paragraph"', $block_content);
+            }
+        
+            return $block_content;
+        }, 10, 2);            
+    }
 }
