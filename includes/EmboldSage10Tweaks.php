@@ -111,10 +111,21 @@ class EmboldSage10Tweaks {
     {
         add_filter('render_block', function ($block_content, $block) {
             if ($block['blockName'] === 'core/paragraph') {
-                $block_content = str_replace('<p', '<p class="wp-paragraph"', $block_content);
+                $block_content = str_replace('<p', '<p class="wp-block-paragraph"', $block_content);
             }
         
             return $block_content;
-        }, 10, 2);            
+        }, 10, 2);
+    }
+
+    /**
+     * Ensure block library css is included even when Soil clean up is active
+     * @return void 
+     */
+    public function enqueueBlockLibraryOverride()
+    {
+        add_action('wp_enqueue_scripts', function () {
+            wp_enqueue_style('wp-block-library');
+        }, 300);
     }
 }
