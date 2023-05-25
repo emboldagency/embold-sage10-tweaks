@@ -119,6 +119,21 @@ class EmboldSage10Tweaks {
     }
 
     /**
+     * Add a class to the list blocks.
+     */
+    public function addListBlockClass()
+    {
+        add_filter('render_block', function ($block_content, $block) {
+            if ($block['blockName'] === 'core/list') {
+                $block_content = str_replace('<ul', '<ul class="wp-block-ul"', $block_content);
+                $block_content = str_replace('<ol', '<ol class="wp-block-ol"', $block_content);
+            }
+        
+            return $block_content;
+        }, 10, 2);
+    }
+
+    /**
      * Ensure block library css is included even when Soil clean up is active
      * @return void 
      */
