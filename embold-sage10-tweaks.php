@@ -26,10 +26,13 @@ function embold_sage10_tweaks_init() {
     // Enqueue the frontend CSS to the editor
     $plugin->addCssToEditor();
 
+    // Add wp-block-paragraph class to paragraph blocks
     $plugin->addParagraphBlockClass();
 
+    // Add wp-block-ul and wp-block-ol classes to list blocks
     $plugin->addListBlockClass();
 
+    // Ensure the default block library is enqueued even if Soil clean up is active
     $plugin->enqueueBlockLibraryOverride();
 }
 
