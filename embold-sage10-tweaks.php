@@ -4,7 +4,7 @@
  * Plugin Name:        emBold Sage10 Tweaks
  * Plugin URI:         https://embold.com
  * Description:        A collection of tweaks and changes to the Sage 10 framework.
- * Version:            0.7.0
+ * Version:            0.7.1
  * Author:             emBold
  * Author URI:         https://embold.com/
  * Primary Branch:     master

@@ -33,7 +33,12 @@ class EmboldSage10Tweaks {
     {
         add_filter('render_block', function ($block_content, $block) {
             if ($block['blockName'] === 'core/paragraph') {
-                $block_content = str_replace('<p', '<p class="wp-block-paragraph"', $block_content);
+                // if string contains class, just prepend it
+                if (str_contains($block_content, 'class')) {
+                    $block_content = str_replace('class="', 'class="wp-block-paragraph ', $block_content);
+                } else {
+                    $block_content = str_replace('<p', '<p class="wp-block-paragraph"', $block_content);
+                }
             }
         
             return $block_content;
