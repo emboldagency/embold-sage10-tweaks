@@ -1,4 +1,14 @@
-# Tweaks and Changes to Sage 10
+=== emBold Sage10 Tweaks ===
+Contributors: itsjsutxan
+Tags: sage, tweaks
+Requires at least: 6.0
+Tested up to: 6.2.2
+Stable tag: 0.8.0
+Requires PHP: 8.0
+
+A collection of tweaks and changes to the Sage 10 framework.
+
+== Description ==
 
 There are common things we'll need to change in every Sage 10 theme, this plugin simplifies making all these changes with
 a drag and drop plugin.
@@ -7,3 +17,13 @@ a drag and drop plugin.
 2. Add "wp-block-paragraph" class to Gutenberg paragraph blocks to allow easier styling of the blocks vs ACF wysiwyg p's.
 3. Add "wp-block-ul" and "wp-block-ol" classes to Gutenberg list blocks to allow easier targeting.
 4. Always make sure the default block library is loaded even when Soil is installed and set to clean.
+
+== Changelog ==
+
+= 0.8.0 =
+* Add plugin update ability
+
+== Upgrade Notice ==
+
+= 0.8.0 =
+* Add plugin update ability
