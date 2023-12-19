@@ -4,7 +4,7 @@
  * Plugin Name:        emBold Sage10 Tweaks
  * Plugin URI:         https://embold.com
  * Description:        A collection of tweaks and changes to the Sage 10 framework.
- * Version:            0.8.0
+ * Version:            0.9.0
  * Author:             emBold
  * Author URI:         https://embold.com/
  * Primary Branch:     master
@@ -28,9 +28,22 @@ $embold_update_checker = PucFactory::buildUpdateChecker(
 );
 
 $update_key_url = 'https://embold.net/api/wp-plugin-key';
-$update_key = @trim(file_get_contents($update_key_url));
 
-if ($update_key) {
+// Initialize cURL session
+$ch = curl_init($update_key_url);
+
+// Set cURL options
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 0.2); // Set timeout in seconds
+
+// Execute cURL session
+$update_key = @curl_exec($ch);
+
+if ($update_key !== false && ($update_key = trim($update_key))) {
+    // Close cURL session
+    curl_close($ch);
+
+    // Set authentication and enable release assets
     $embold_update_checker->setAuthentication($update_key);
     $embold_update_checker->getVcsApi()->enableReleaseAssets();
 }
