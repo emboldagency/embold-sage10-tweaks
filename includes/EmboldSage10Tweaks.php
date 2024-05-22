@@ -10,20 +10,20 @@ class EmboldSage10Tweaks {
      */
     public function addCssToEditor()
     {
-        add_action('after_setup_theme', function () {
-            add_theme_support('editor-styles');
-        
+        add_action('enqueue_block_editor_assets', function() {
             $public_path = get_template_directory() . '/public/css';
             $app_css_path = '';
-        
+
             $files = glob($public_path . '/app.*.css');
-        
+
             if (!empty($files)) {
                 $app_css_path = get_template_directory_uri() . '/public/css/' . basename($files[0]);
             }
-        
-            add_editor_style($app_css_path);
-        });
+
+            if (!empty($app_css_path)) {
+                wp_enqueue_style('custom-editor-style', $app_css_path, false, '1.0', 'all');
+            }
+        }, 100);
     }
 
     /**
@@ -40,7 +40,7 @@ class EmboldSage10Tweaks {
                     $block_content = str_replace('<p', '<p class="wp-block-paragraph"', $block_content);
                 }
             }
-        
+
             return $block_content;
         }, 10, 2);
     }
@@ -55,14 +55,14 @@ class EmboldSage10Tweaks {
                 $block_content = str_replace('<ul', '<ul class="wp-block-ul"', $block_content);
                 $block_content = str_replace('<ol', '<ol class="wp-block-ol"', $block_content);
             }
-        
+
             return $block_content;
         }, 10, 2);
     }
 
     /**
      * Ensure block library css is included even when Soil clean up is active
-     * @return void 
+     * @return void
      */
     public function enqueueBlockLibraryOverride()
     {
