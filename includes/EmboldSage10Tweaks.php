@@ -2,7 +2,8 @@
 
 namespace App;
 
-class EmboldSage10Tweaks {
+class EmboldSage10Tweaks
+{
     /**
      * Add the CSS to the editor.
      *
@@ -10,17 +11,17 @@ class EmboldSage10Tweaks {
      */
     public function addCssToEditor()
     {
-        add_action('enqueue_block_editor_assets', function() {
-            $public_path = get_template_directory() . '/public/css';
+        add_action('enqueue_block_editor_assets', function () {
+            $public_path = get_template_directory().'/public/css';
             $app_css_path = '';
 
-            $files = glob($public_path . '/app.*.css');
+            $files = glob($public_path.'/app.*.css');
 
-            if (!empty($files)) {
-                $app_css_path = get_template_directory_uri() . '/public/css/' . basename($files[0]);
+            if (! empty($files)) {
+                $app_css_path = get_template_directory_uri().'/public/css/'.basename($files[0]);
             }
 
-            if (!empty($app_css_path)) {
+            if (! empty($app_css_path)) {
                 wp_enqueue_style('custom-editor-style', $app_css_path, false, '1.0', 'all');
             }
         }, 100);
@@ -62,6 +63,7 @@ class EmboldSage10Tweaks {
 
     /**
      * Ensure block library css is included even when Soil clean up is active
+     *
      * @return void
      */
     public function enqueueBlockLibraryOverride()
@@ -69,5 +71,18 @@ class EmboldSage10Tweaks {
         add_action('wp_enqueue_scripts', function () {
             wp_enqueue_style('wp-block-library');
         }, 300);
+    }
+
+    public function fixGravityForms()
+    {
+        add_action('admin_footer', function () {
+            $isGravityFormsEditPage = isset($_GET['page']) && $_GET['page'] === 'gf_edit_forms';
+            if (! $isGravityFormsEditPage) {
+                return;
+            }
+            ?>
+                <script type="text/javascript">document.querySelector('select[name="_gform_setting_event"]').setAttribute('id', 'event');</script>
+            <?php
+        }, 1000);
     }
 }

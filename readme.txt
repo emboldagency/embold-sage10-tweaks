@@ -3,7 +3,7 @@ Contributors: itsjsutxan
 Tags: sage, tweaks
 Requires at least: 6.0
 Tested up to: 6.2.2
-Stable tag: 0.12.0
+Stable tag: 0.13.0
 Requires PHP: 8.0
 
 A collection of tweaks and changes to the Sage 10 framework.
@@ -20,6 +20,8 @@ a drag and drop plugin.
 
 == Changelog ==
 
+= 0.13.0 =
+* add fix for gravity forms
 
 = 0.12.0 =
 * update for targeting paragraph blocks
