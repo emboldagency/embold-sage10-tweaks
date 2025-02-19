@@ -53,8 +53,29 @@ class EmboldSage10Tweaks
     {
         add_filter('render_block', function ($block_content, $block) {
             if ($block['blockName'] === 'core/list') {
-                $block_content = str_replace('<ul', '<ul class="wp-block-ul"', $block_content);
-                $block_content = str_replace('<ol', '<ol class="wp-block-ol"', $block_content);
+                // If ul or ol already has a class, append "wp-block-ul" or "wp-block-ol"
+                $block_content = preg_replace_callback(
+                    '~<(ul|ol)([^>]*)class="([^"]*)"~',
+                    function ($matches) {
+                        $tag = $matches[1]; // ul or ol
+                        $attributes = $matches[2]; // any other attributes before class
+                        $existing_classes = $matches[3]; // current class list
+                        $new_class = $tag === 'ul' ? 'wp-block-ul' : 'wp-block-ol';
+
+                        // Append new class, making sure it's unique
+                        $updated_classes = trim("$existing_classes $new_class");
+
+                        return "<$tag$attributes class=\"$updated_classes\"";
+                    },
+                    $block_content
+                );
+
+                // If ul or ol has no class at all, add class attribute
+                $block_content = preg_replace(
+                    '~<(ul|ol)(?![^>]*class=)~',
+                    '<$1 class="'.($block['blockName'] === 'core/list' && strpos($block_content, '<ul') !== false ? 'wp-block-ul' : 'wp-block-ol').'"',
+                    $block_content
+                );
             }
 
             return $block_content;
