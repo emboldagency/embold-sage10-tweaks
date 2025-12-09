@@ -1,6 +1,6 @@
-# Tweaks and Changes to Sage 10
+# Tweaks and Changes to Sage 10 and Sage 11
 
-There are common things we'll need to change in every Sage 10 theme, this plugin simplifies making all these changes with
+There are common things we'll need to change in every Sage 10 and Sage 11 theme, this plugin simplifies making all these changes with
 a drag and drop plugin.
 
 1. Enqueues app.css styles in only the Gutenberg editor, not the entire admin panel.
