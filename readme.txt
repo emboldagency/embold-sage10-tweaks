@@ -3,10 +3,10 @@ Contributors: itsjsutxan
 Tags: sage, tweaks
 Requires at least: 6.0
 Tested up to: 6.2.2
-Stable tag: 0.14.0
+Stable tag: 0.14.1
 Requires PHP: 8.0
 
-A collection of tweaks and changes to the Sage 10 framework.
+A collection of tweaks and changes to the Sage 10 and Sage 11 frameworks.
 
 == Description ==
 
@@ -19,6 +19,9 @@ a drag and drop plugin.
 4. Always make sure the default block library is loaded even when Soil is installed and set to clean.
 
 == Changelog ==
+
+= 0.14.1 =
+* update plugin-update-checker
 
 = 0.14.0 =
 * don't lose custom classes added to block lists when we add our default class
