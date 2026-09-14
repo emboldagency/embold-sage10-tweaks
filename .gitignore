@@ -1,0 +1,21 @@
+dist/*
+!dist/.gitkeep
+!dist/archives/
+!dist/extracted/
+dist/archives/*
+dist/extracted/*
+.idea/
+.vscode/
+
+# Ignore node_modules if present locally, but explicitly keep vendor
+node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
