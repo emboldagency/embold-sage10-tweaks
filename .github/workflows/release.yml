@@ -1,0 +1,15 @@
+name: WordPress Plugin Release
+
+on:
+  push:
+    tags:
+      - "v?[0-9]+.[0-9]+.[0-9]+"
+      - "v?[0-9]+.[0-9]+.[0-9]+-*"
+  workflow_dispatch:
+
+jobs:
+  dist:
+    uses: emboldagency/.github/.github/workflows/wp-release.yml@main
+    with:
+      plugin_slug: 'embold-sage10-tweaks'
+      main_file: 'embold-sage10-tweaks.php'
