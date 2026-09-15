@@ -20,6 +20,9 @@ a drag and drop plugin.
 
 == Changelog ==
 
+= 0.14.3 =
+* Version bump to fix WP version comparison downgrade warning
+
 = 0.14.2 =
 * Internal: Upgraded deployment pipeline to generate checksum-compliant release zips.
 
