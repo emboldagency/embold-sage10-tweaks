@@ -20,6 +20,9 @@ a drag and drop plugin.
 
 == Changelog ==
 
+= 0.14.2 =
+* Internal: Upgraded deployment pipeline to generate checksum-compliant release zips.
+
 = 0.14.1 =
 * update plugin-update-checker
 
