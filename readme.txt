@@ -3,7 +3,7 @@ Contributors: itsjsutxan
 Tags: sage, tweaks
 Requires at least: 6.0
 Tested up to: 6.2.2
-Stable tag: 0.14.1
+Stable tag: 0.14.4
 Requires PHP: 8.0
 
 A collection of tweaks and changes to the Sage 10 and Sage 11 frameworks.
@@ -19,6 +19,9 @@ a drag and drop plugin.
 4. Always make sure the default block library is loaded even when Soil is installed and set to clean.
 
 == Changelog ==
+
+= 0.14.4 =
+* Fix the plugin header version so WordPress offers this update; 0.14.3 was tagged with an older header, so sites never saw it.
 
 = 0.14.3 =
 * Version bump to fix WP version comparison downgrade warning
